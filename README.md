@@ -1,69 +1,34 @@
-# React + TypeScript + Vite
+# 📰 NYT Article Search App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive single-page application (SPA) for searching New York Times articles. Built with React and powered by the New York Times API, the app features infinite scrolling, recent search history, theme switching, and mobile-first design.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 **Search Articles**: Enter any keyword to find relevant articles from NYT.
+- ♾️ **Infinite Scroll**: Seamlessly loads more results as you scroll.
+- 🕓 **Recent Search History**: Quickly revisit your recent searches.
+- 🌗 **Theme Toggle**: Switch between light and dark modes.
+- 📱 **Mobile-First Responsive Design**: Optimized for mobile and desktop.
 
-## Expanding the ESLint configuration
+## 🧰 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React 19**: Modern UI library
+- **Vite**: Lightning-fast build tool
+- **TypeScript**: Typed JavaScript
+- **Tailwind CSS + DaisyUI**: Utility-first CSS with styled components
+- **@tanstack/react-query**: Server state and data fetching
+- **Zustand**: Lightweight state management
+- **Axios**: API requests
+- **React Router**: SPA navigation
+- **date-fns**: Date utility functions
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📦 Project Scripts
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+| Script              | Description                          |
+|---------------------|--------------------------------------|
+| `pnpm dev`          | Start development server             |
+| `pnpm build`        | Build project for production         |
+| `pnpm preview`      | Preview built production locally     |
+| `pnpm lint`         | Run ESLint to check for issues       |
+| `pnpm format`       | Format code using Prettier           |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
