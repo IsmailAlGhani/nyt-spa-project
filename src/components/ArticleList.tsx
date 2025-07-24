@@ -1,7 +1,7 @@
-import ArticleCard from "@/components/ArticleCard";
-import LoadingSpinner from "@/components/LoadingSpinner";
-import ErrorMessage from "@/components/ErrorMessage";
-import type { Article } from "@/types/article";
+import ArticleCard from '@/components/ArticleCard';
+import LoadingSpinner from '@/components/LoadingSpinner';
+import ErrorMessage from '@/components/ErrorMessage';
+import type { Article } from '@/types/article';
 
 interface ArticleListProps {
   articles: Article[];
@@ -26,9 +26,9 @@ const ArticleList = ({
 
   if (articles.length === 0) {
     return (
-      <div className="text-center py-12">
-        <div className="text-6xl mb-4">📰</div>
-        <h3 className="text-xl font-semibold mb-2">No articles found</h3>
+      <div className="py-12 text-center">
+        <div className="mb-4 text-6xl">📰</div>
+        <h3 className="mb-2 text-xl font-semibold">No articles found</h3>
         <p className="text-base-content/60">
           Try adjusting your search terms or filters
         </p>
@@ -39,12 +39,12 @@ const ArticleList = ({
   return (
     <div className="space-y-6 px-0 md:px-4">
       {totalResults && (
-        <div className="text-sm text-base-content/60">
+        <div className="text-base-content/60 text-sm">
           Found {totalResults.toLocaleString()} articles
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {articles.map((article) => (
           <ArticleCard key={article.web_url} article={article} />
         ))}

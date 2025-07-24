@@ -24,13 +24,13 @@ A modern, responsive single-page application (SPA) for searching New York Times 
 
 ## 📦 Project Scripts
 
-| Script              | Description                          |
-|---------------------|--------------------------------------|
-| `pnpm dev`          | Start development server             |
-| `pnpm build`        | Build project for production         |
-| `pnpm preview`      | Preview built production locally     |
-| `pnpm lint`         | Run ESLint to check for issues       |
-| `pnpm format`       | Format code using Prettier           |
+| Script         | Description                      |
+| -------------- | -------------------------------- |
+| `pnpm dev`     | Start development server         |
+| `pnpm build`   | Build project for production     |
+| `pnpm preview` | Preview built production locally |
+| `pnpm lint`    | Run ESLint to check for issues   |
+| `pnpm format`  | Format code using Prettier       |
 
 ## Live Preview
 

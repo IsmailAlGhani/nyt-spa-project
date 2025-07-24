@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useSearchStore } from "@/store/searchStore";
+import { useSearchStore } from '@/store/searchStore';
 
 interface RecentSearchesProps {
   onSearchSelect: (query: string) => void;
@@ -14,10 +14,10 @@ const RecentSearches = ({ onSearchSelect }: RecentSearchesProps) => {
   }
 
   return (
-    <div className="card bg-base-100 shadow-sm w-full max-w-2xl">
+    <div className="card bg-base-100 w-full max-w-2xl shadow-sm">
       <div className="card-body p-4">
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="font-semibold text-sm">Recent Searches</h3>
+        <div className="mb-3 flex items-center justify-between">
+          <h3 className="text-sm font-semibold">Recent Searches</h3>
           <button
             className="btn btn-ghost btn-xs"
             onClick={clearRecentSearches}

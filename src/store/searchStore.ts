@@ -1,6 +1,6 @@
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
-import type { SearchParams } from "@/types/article";
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+import type { SearchParams } from '@/types/article';
 
 interface SearchState {
   searchQuery: string;
@@ -15,11 +15,11 @@ interface SearchState {
 export const useSearchStore = create<SearchState>()(
   persist(
     (set) => ({
-      searchQuery: "",
+      searchQuery: '',
       searchParams: {
-        q: "",
+        q: '',
         page: 0,
-        sort: "newest",
+        sort: 'newest',
       },
       recentSearches: [],
 
@@ -51,7 +51,7 @@ export const useSearchStore = create<SearchState>()(
       },
     }),
     {
-      name: "nyt-search-store",
+      name: 'nyt-search-store',
       partialize: (state) => ({
         recentSearches: state.recentSearches,
       }),

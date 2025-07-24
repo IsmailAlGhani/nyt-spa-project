@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { format } from "date-fns";
-import type { Article } from "@/types/article";
-import { useMemo } from "react";
+import { format } from 'date-fns';
+import type { Article } from '@/types/article';
+import { useMemo } from 'react';
 
 interface ArticleCardProps {
   article: Article;
@@ -10,7 +10,7 @@ interface ArticleCardProps {
 
 const ArticleCard = ({ article }: ArticleCardProps) => {
   const handleClick = () => {
-    window.open(article.web_url, "_blank", "noopener,noreferrer");
+    window.open(article.web_url, '_blank', 'noopener,noreferrer');
   };
 
   const imageUrl = useMemo(() => {
@@ -28,24 +28,24 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
 
   const formatDate = (dateString: string) => {
     try {
-      return format(new Date(dateString), "MMM dd, yyyy");
+      return format(new Date(dateString), 'MMM dd, yyyy');
     } catch {
-      return "Unknown date";
+      return 'Unknown date';
     }
   };
 
   const author = useMemo(
-    () => article.byline?.original?.replace(/^By /i, "") || "Unknown author",
+    () => article.byline?.original?.replace(/^By /i, '') || 'Unknown author',
     [article],
   );
 
   return (
     <button
       type="button"
-      className="card bg-base-100 shadow-md hover:shadow-lg transition-shadow cursor-pointer group border border-base-200 text-left p-0"
+      className="card bg-base-100 group border-base-200 cursor-pointer border p-0 text-left shadow-md transition-shadow hover:shadow-lg"
       onClick={handleClick}
       onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
+        if (e.key === 'Enter' || e.key === ' ') {
           handleClick();
         }
       }}
@@ -56,25 +56,25 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
           <img
             src={imageUrl}
             alt={article.headline.main}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+            className="h-full w-full object-cover transition-transform duration-200 group-hover:scale-105"
             loading="lazy"
           />
         </figure>
       )}
       <div className="card-body p-4">
-        <h2 className="card-title text-lg font-semibold line-clamp-2 group-hover:text-primary transition-colors">
+        <h2 className="card-title group-hover:text-primary line-clamp-2 text-lg font-semibold transition-colors">
           {article.headline.main}
         </h2>
-        <p className="text-sm text-base-content/70 line-clamp-3 mb-2">
+        <p className="text-base-content/70 mb-2 line-clamp-3 text-sm">
           {article.snippet}
         </p>
-        <div className="flex flex-col gap-1 text-xs text-base-content/60">
+        <div className="text-base-content/60 flex flex-col gap-1 text-xs">
           <div className="flex items-center justify-between">
             <span className="font-medium">{author}</span>
             <span>{formatDate(article.pub_date)}</span>
           </div>
           {article.section_name && (
-            <div className="flex items-center gap-2 mt-1">
+            <div className="mt-1 flex items-center gap-2">
               <span className="badge badge-outline badge-sm">
                 {article.section_name}
               </span>

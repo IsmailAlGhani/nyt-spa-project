@@ -1,16 +1,16 @@
-"use client"
+'use client';
 
 interface ErrorMessageProps {
-  error: Error
-  onRetry?: () => void
+  error: Error;
+  onRetry?: () => void;
 }
 
 const ErrorMessage = ({ error, onRetry }: ErrorMessageProps) => {
   return (
-    <div className="alert alert-error max-w-2xl mx-auto">
+    <div className="alert alert-error mx-auto max-w-2xl">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="stroke-current shrink-0 h-6 w-6"
+        className="h-6 w-6 shrink-0 stroke-current"
         fill="none"
         viewBox="0 0 24 24"
       >
@@ -31,7 +31,7 @@ const ErrorMessage = ({ error, onRetry }: ErrorMessageProps) => {
         </button>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default ErrorMessage
+export default ErrorMessage;

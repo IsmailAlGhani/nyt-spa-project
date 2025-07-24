@@ -62,7 +62,7 @@ export interface SearchResponse {
 export interface SearchParams {
   q: string;
   page?: number;
-  sort?: "newest" | "oldest" | "relevance";
+  sort?: 'newest' | 'oldest' | 'relevance';
   begin_date?: string;
   end_date?: string;
   fq?: string;

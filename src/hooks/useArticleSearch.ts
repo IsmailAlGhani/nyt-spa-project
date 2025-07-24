@@ -1,6 +1,6 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { searchArticles } from "@/services/nytApi";
-import type { SearchParams, SearchResponse } from "@/types/article";
+import { useInfiniteQuery } from '@tanstack/react-query';
+import { searchArticles } from '@/services/nytApi';
+import type { SearchParams, SearchResponse } from '@/types/article';
 
 export const useArticleSearch = (params: SearchParams, enabled = true) => {
   return useInfiniteQuery<
@@ -11,7 +11,7 @@ export const useArticleSearch = (params: SearchParams, enabled = true) => {
     number
   >({
     queryKey: [
-      "articles",
+      'articles',
       params.q,
       params.sort,
       params.begin_date,

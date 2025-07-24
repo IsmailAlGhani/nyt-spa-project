@@ -1,21 +1,21 @@
-import { useSearchParams } from "react-router";
-import SearchForm from "@/components/SearchForm";
-import RecentSearches from "@/components/RecentSearches";
-import { useSearchStore } from "@/store/searchStore";
-import { useCallback, useEffect, useRef } from "react";
-import { useArticleSearch } from "@/hooks/useArticleSearch";
-import type { InfiniteData } from "@tanstack/react-query";
-import type { Article, SearchResponse } from "@/types/article";
-import ArticleList from "@/components/ArticleList";
+import { useSearchParams } from 'react-router';
+import SearchForm from '@/components/SearchForm';
+import RecentSearches from '@/components/RecentSearches';
+import { useSearchStore } from '@/store/searchStore';
+import { useCallback, useEffect, useRef } from 'react';
+import { useArticleSearch } from '@/hooks/useArticleSearch';
+import type { InfiniteData } from '@tanstack/react-query';
+import type { Article, SearchResponse } from '@/types/article';
+import ArticleList from '@/components/ArticleList';
 
 const HomePage = () => {
   const [urlSearchParams, setUrlSearchParams] = useSearchParams();
   const { addRecentSearch } = useSearchStore();
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const q = urlSearchParams.get("q") || "";
+  const q = urlSearchParams.get('q') || '';
 
-  const searchParams = { q, page: 0, sort: "newest" as const };
+  const searchParams = { q, page: 0, sort: 'newest' as const };
 
   const {
     data,
@@ -60,20 +60,20 @@ const HomePage = () => {
         loadMore();
       }
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [loadMore, isLoading, isFetchingNextPage, hasNextPage]);
 
   return (
     <div
-      className="flex flex-col gap-y-4 items-center w-full px-4 md:mx-auto"
+      className="flex w-full flex-col items-center gap-y-4 px-4 md:mx-auto"
       ref={containerRef}
     >
       <div className="text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+        <h1 className="mb-4 text-4xl font-bold md:text-6xl">
           Discover <span className="text-primary">NYT</span> Articles
         </h1>
-        <p className="text-lg text-base-content/70 max-w-2xl mx-auto mb-8">
+        <p className="text-base-content/70 mx-auto mb-8 max-w-2xl text-lg">
           Search through millions of articles from The New York Times. Find
           breaking news, in-depth analysis, and expert opinions on topics that
           matter to you.
@@ -94,12 +94,12 @@ const HomePage = () => {
         totalResults={totalResults}
       />
       {isFetchingNextPage && (
-        <div className="flex justify-center my-6">
+        <div className="my-6 flex justify-center">
           <span className="loading loading-spinner loading-lg text-primary"></span>
         </div>
       )}
       {!hasNextPage && articles.length > 0 && (
-        <div className="text-center text-base-content/60 my-6">
+        <div className="text-base-content/60 my-6 text-center">
           No more articles to load.
         </div>
       )}
