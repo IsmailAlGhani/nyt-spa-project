@@ -32,3 +32,8 @@ A modern, responsive single-page application (SPA) for searching New York Times 
 | `pnpm lint`         | Run ESLint to check for issues       |
 | `pnpm format`       | Format code using Prettier           |
 
+## Live Preview
+
+Check out the live demo of the application here: [NYT Article Search Project](https://nyt-article-search-project.vercel.app/)
+
+Enjoy searching for articles with a modern and responsive single-page application!
